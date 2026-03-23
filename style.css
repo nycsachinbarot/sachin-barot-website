@@ -331,8 +331,38 @@ body {
   font-size: clamp(2.4rem, 4.5vw, 4rem);
   font-weight: 300;
   line-height: 1.12;
+  margin-bottom: 0;  
+}
+
+.work-heading-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
   margin-bottom: 4.5rem;
 }
+
+.work-heading-photo {
+  width: min(280px, 30vw);
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+}
+
+@media (max-width: 768px) {
+  .work-heading-row {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 2.5rem;
+  }
+
+  .work-heading-photo {
+    width: 100%;
+    max-width: 320px;
+  }
+}
+
 .work-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);

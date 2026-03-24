@@ -70,11 +70,20 @@ if (form) {
     btn.textContent = 'Sending…';
     btn.disabled = true;
 
-    // TODO: Replace with your Formspree endpoint or backend
-    // For now, simulate submission
-    await new Promise(r => setTimeout(r, 1200));
+const data = new FormData(form);
+const response = await fetch(form.action, {
+  method: 'POST',
+  body: data,
+  headers: { Accept: 'application/json' }
+});
 
-    form.style.display = 'none';
-    successMsg.classList.add('visible');
+if (response.ok) {
+  form.style.display = 'none';
+  successMsg.classList.add('visible');
+} else {
+  btn.textContent = 'Submit Application';
+  btn.disabled = false;
+  alert('There was a problem submitting your form. Please try again.');
+}
   });
 }

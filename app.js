@@ -70,20 +70,29 @@ if (form) {
     btn.textContent = 'Sending…';
     btn.disabled = true;
 
-const data = new FormData(form);
-const response = await fetch(form.action, {
-  method: 'POST',
-  body: data,
-  headers: { Accept: 'application/json' }
-});
+    try {
+      const data = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: data,
+        headers: { Accept: 'application/json' }
+      });
 
-if (response.ok) {
-  form.style.display = 'none';
-  successMsg.classList.add('visible');
-} else {
-  btn.textContent = 'Submit Application';
-  btn.disabled = false;
-  alert('There was a problem submitting your form. Please try again.');
-}
+      if (response.ok) {
+        form.style.display = 'none';
+        successMsg.classList.add('visible');
+      } else {
+        const errText = await response.text();
+        console.error('Formspree error:', response.status, errText);
+        btn.textContent = 'Submit Application';
+        btn.disabled = false;
+        alert(`There was a problem submitting your form (${response.status}). Please try again.`);
+      }
+    } catch (err) {
+      console.error('Network error:', err);
+      btn.textContent = 'Submit Application';
+      btn.disabled = false;
+      alert('Network error. Please try again.');
+    }
   });
 }

@@ -38,7 +38,7 @@ document.querySelectorAll('a[href^="#"]').forEach(link => {
 
 // ─── FADE-IN ON SCROLL ───────────────────────────────────────
 const fadeEls = document.querySelectorAll(
-  '.chapter, .work-card, .quote-card, .testimonial, .article-card, .exp-content, .guest-facilitator'
+  '.chapter, .work-card, .quote-card, .testimonial, .article-card, .guest-facilitator, .rest-card, .event-card, .past-retreat-card, .cred-item, .offer-card, .gallery-item'
 );
 
 fadeEls.forEach(el => el.classList.add('fade-in'));

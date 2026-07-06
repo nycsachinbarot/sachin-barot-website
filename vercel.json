@@ -1,4 +1,7 @@
 {
+  "redirects": [
+    { "source": "/writing.html", "destination": "/offerings.html", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",

@@ -1,4 +1,7 @@
 {
+  "rewrites": [
+    { "source": "/meditate", "destination": "/meditate.html" }
+  ],
   "redirects": [
     { "source": "/writing.html", "destination": "/offerings.html", "permanent": true }
   ],

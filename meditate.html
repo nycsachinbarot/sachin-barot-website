@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn to Meditate in 5 Sessions — Journey into the Heart</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400;1,9..144,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --crimson: #8B1A1A;
+    --crimson-deep: #6E1414;
+    --brown: #2A0A0A;
+    --cream: #F7F1E7;
+    --cream-warm: #F0E7D8;
+    --rose: #C98F8F;
+    --ink: #2A0A0A;
+    --ink-soft: #5A4640;
+    --line: #E3D8C4;
+    --serif: 'Fraunces', Georgia, serif;
+    --sans: 'Inter', -apple-system, sans-serif;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: var(--sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .band-top, .band-bottom {
+    height: 6px;
+    background: var(--crimson);
+  }
+
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  .container-lg {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* ---------- HERO ---------- */
+  .hero {
+    background: var(--brown);
+    color: var(--cream);
+    padding: 76px 0 68px;
+    text-align: center;
+  }
+
+  .mark {
+    width: 46px;
+    height: 46px;
+    margin: 0 auto 32px;
+  }
+
+  .hero .kicker {
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.03em;
+    color: var(--rose);
+    margin-bottom: 18px;
+  }
+
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 44px;
+    line-height: 1.15;
+    max-width: 560px;
+    margin: 0 auto 22px;
+  }
+
+  .hero p.lede {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 19px;
+    color: #E8DCCE;
+    max-width: 460px;
+    margin: 0 auto 36px;
+  }
+
+  .hero-meta {
+    display: flex;
+    justify-content: center;
+    gap: 28px;
+    font-size: 14px;
+    color: #CBB8AE;
+    margin-bottom: 36px;
+    flex-wrap: wrap;
+  }
+
+  .hero-meta span strong {
+    color: var(--cream);
+    display: block;
+    font-family: var(--serif);
+    font-size: 20px;
+    font-weight: 500;
+  }
+
+  .btn {
+    display: inline-block;
+    background: var(--crimson);
+    color: var(--cream);
+    text-decoration: none;
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 16px;
+    padding: 15px 34px;
+    border-radius: 3px;
+    transition: background 0.2s ease;
+  }
+
+  .btn:hover { background: var(--crimson-deep); }
+
+  .btn-outline {
+    display: inline-block;
+    border: 1px solid var(--crimson);
+    color: var(--crimson);
+    text-decoration: none;
+    font-family: var(--sans);
+    font-weight: 500;
+    font-size: 16px;
+    padding: 14px 34px;
+    border-radius: 3px;
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section {
+    padding: 64px 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  section:last-of-type { border-bottom: none; }
+
+  h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 30px;
+    margin-bottom: 22px;
+    color: var(--brown);
+  }
+
+  p {
+    font-size: 16px;
+    color: var(--ink-soft);
+    max-width: 60ch;
+  }
+
+  p + p { margin-top: 14px; }
+
+  .quote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 21px;
+    color: var(--crimson);
+    line-height: 1.5;
+    max-width: 52ch;
+    margin: 8px 0;
+  }
+
+  /* ---------- SESSIONS (sequence) ---------- */
+  .session {
+    display: flex;
+    gap: 22px;
+    padding: 26px 0;
+    border-top: 1px solid var(--line);
+  }
+
+  .session:first-of-type { border-top: none; padding-top: 0; }
+
+  .session-num {
+    font-family: var(--serif);
+    font-size: 15px;
+    color: var(--crimson);
+    min-width: 30px;
+    padding-top: 3px;
+  }
+
+  .session-body h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 19px;
+    color: var(--brown);
+    margin-bottom: 6px;
+  }
+
+  .session-body p { font-size: 15px; }
+
+  .followup {
+    margin-top: 40px;
+    padding: 40px 36px;
+    background: var(--cream-warm);
+    border: 1px solid var(--crimson);
+    text-align: center;
+  }
+
+  .followup h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 26px;
+    color: var(--brown);
+    margin-bottom: 10px;
+  }
+
+  .followup p {
+    font-size: 16px;
+    max-width: 46ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* ---------- WHO ITS FOR ---------- */
+  .for-list {
+    list-style: none;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px 28px;
+    margin-top: 8px;
+  }
+
+  .for-list li {
+    font-size: 15px;
+    color: var(--ink-soft);
+    padding-left: 18px;
+    position: relative;
+  }
+
+  .for-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 9px;
+    width: 6px;
+    height: 6px;
+    background: var(--crimson);
+    border-radius: 50%;
+  }
+
+  /* ---------- ABOUT ---------- */
+  .about {
+    display: flex;
+    gap: 26px;
+    align-items: flex-start;
+  }
+
+  .about-mark {
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+
+  /* ---------- PRICE ---------- */
+  .price-card {
+    background: var(--brown);
+    color: var(--cream);
+    padding: 44px 40px;
+    border-radius: 4px;
+    text-align: center;
+  }
+
+  .price-card .amount {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 52px;
+    margin: 6px 0 4px;
+  }
+
+  .price-card .sub {
+    font-size: 14px;
+    color: #CBB8AE;
+    margin-bottom: 28px;
+  }
+
+  .price-includes {
+    text-align: left;
+    max-width: 340px;
+    margin: 0 auto 32px;
+    list-style: none;
+  }
+
+  .price-includes li {
+    font-size: 15px;
+    color: #E8DCCE;
+    padding: 9px 0;
+    border-top: 1px solid #4A2A22;
+  }
+
+  .price-includes li:first-child { border-top: none; }
+
+  .price-note {
+    font-size: 13px;
+    color: #B39C90;
+    margin-top: 22px;
+  }
+
+  /* ---------- CTA ---------- */
+  .cta {
+    text-align: center;
+    padding: 70px 0 80px;
+  }
+
+  .cta h2 { margin-bottom: 12px; }
+
+  .cta p.lede {
+    font-family: var(--serif);
+    font-style: italic;
+    color: var(--ink-soft);
+    font-size: 18px;
+    max-width: 44ch;
+    margin: 0 auto 30px;
+  }
+
+  /* ---------- FOOTER ---------- */
+  footer {
+    background: var(--brown);
+    color: #CBB8AE;
+    text-align: center;
+    padding: 44px 0 40px;
+    font-size: 14px;
+  }
+
+  footer .mark { width: 34px; height: 34px; margin-bottom: 18px; }
+  footer a { color: var(--rose); text-decoration: none; }
+  footer .tagline {
+    font-family: var(--serif);
+    font-style: italic;
+    color: #E8DCCE;
+    margin-top: 14px;
+    font-size: 15px;
+  }
+
+  @media (max-width: 560px) {
+    .hero h1 { font-size: 32px; }
+    .hero-meta { gap: 20px; }
+    .for-list { grid-template-columns: 1fr; }
+    .about { flex-direction: column; }
+    .session { flex-direction: column; gap: 6px; }
+  }
+
+  /* ---------- SPLIT LAYOUTS (photo integration) ---------- */
+  .hero-split {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    background: var(--brown);
+    align-items: stretch;
+  }
+
+  .hero-media {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px;
+  }
+
+  .hero-media img {
+    height: 460px;
+    width: auto;
+    max-width: 100%;
+    object-fit: cover;
+    display: block;
+    border-radius: 3px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+  }
+
+  .hero-content {
+    color: var(--cream);
+    padding: 64px 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+  }
+
+  .hero-content .mark { margin: 0 0 28px; }
+
+  .hero-content h1 { margin-left: 0; margin-right: 0; max-width: none; }
+  .hero-content p.lede { margin-left: 0; margin-right: 0; max-width: 42ch; }
+  .hero-content .hero-meta { justify-content: flex-start; }
+
+  .split-section {
+    display: grid;
+    grid-template-columns: 1fr 1.15fr;
+    gap: 48px;
+    align-items: center;
+  }
+
+  .split-section.reverse { grid-template-columns: 1.15fr 1fr; }
+  .split-section.reverse .split-media { order: 2; }
+  .split-section.reverse .split-text { order: 1; }
+
+  .split-media img {
+    width: 100%;
+    height: 100%;
+    max-height: 520px;
+    object-fit: cover;
+    display: block;
+    border-radius: 3px;
+    box-shadow: 0 18px 40px rgba(42,10,10,0.16);
+  }
+
+  .split-text { text-align: left; }
+  .split-text p { margin-left: 0; margin-right: 0; }
+
+  .who-split {
+    display: grid;
+    grid-template-columns: 0.85fr 1.3fr;
+    gap: 44px;
+    align-items: center;
+  }
+
+  .who-media img {
+    width: 100%;
+    max-height: 620px;
+    object-fit: cover;
+    display: block;
+    border-radius: 3px;
+    box-shadow: 0 18px 40px rgba(42,10,10,0.16);
+  }
+
+  @media (max-width: 760px) {
+    .hero-split { grid-template-columns: 1fr; }
+    .hero-media { padding: 32px; }
+    .hero-media img { height: 360px; }
+    .hero-content { padding: 48px 28px; text-align: center; }
+    .hero-content h1 { max-width: 100%; }
+    .hero-content p.lede { margin: 0 auto 36px; }
+    .hero-content .hero-meta { justify-content: center; }
+    .split-section, .split-section.reverse { grid-template-columns: 1fr; gap: 28px; }
+    .split-section.reverse .split-media, .split-section.reverse .split-text { order: unset; }
+    .split-text { text-align: center; }
+    .split-text p { margin-left: auto; margin-right: auto; }
+    .who-split { grid-template-columns: 1fr; }
+  }
+
+  /* ---------- DECORATIVE BANDS ---------- */
+  .band-warm {
+    background: var(--cream-warm);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .decor-motif {
+    position: absolute;
+    pointer-events: none;
+    opacity: 0.09;
+  }
+
+  .decor-motif.right {
+    right: -70px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .decor-motif.left {
+    left: -90px;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* ---------- SESSIONS TIMELINE ---------- */
+  .sessions-shell {
+    display: grid;
+    grid-template-columns: 1fr 220px;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .sessions-col { max-width: 620px; }
+
+  .sessions-timeline { position: relative; }
+
+  .sessions-timeline::before {
+    content: '';
+    position: absolute;
+    left: 19px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--rose), var(--crimson));
+    opacity: 0.35;
+  }
+
+  .session {
+    display: flex;
+    gap: 22px;
+    padding: 22px 0;
+    border-top: none;
+    position: relative;
+  }
+
+  .session-num {
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--cream);
+    min-width: 40px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--crimson);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    position: relative;
+    z-index: 2;
+  }
+
+  .session-decor {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
+
+  @media (max-width: 760px) {
+    .sessions-shell { grid-template-columns: 1fr; }
+    .session-decor { display: none; }
+    .decor-motif { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="band-top"></div>
+
+<!-- HERO -->
+<div class="hero-split">
+  <div class="hero-media">
+    <img src="images/meditate-hero.jpg" alt="Sachin Barot">
+  </div>
+  <div class="hero-content">
+    <svg class="mark" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="48" fill="#F7F1E7"/>
+      <path d="M50 20 L65 50 L50 80 L35 50 Z" fill="#8B1A1A"/>
+      <path d="M50 34 L58 50 L50 66 L42 50 Z" fill="#2A0A0A"/>
+    </svg>
+    <div class="kicker">Journey into the Heart · A Live Online Course</div>
+    <h1>Learn to Meditate in Five Sessions</h1>
+    <p class="lede">A guided path into a real, lasting practice — taught live, in a small group, by someone who lives this every day.</p>
+    <div class="hero-meta">
+      <span><strong>5</strong>live sessions</span>
+      <span><strong>1</strong>private follow-up</span>
+      <span><strong>15</strong>seats only</span>
+    </div>
+    <a href="mailto:sachin@sachinbarot.com?subject=Learn%20to%20Meditate%20-%20I'm%20in" class="btn">Reserve Your Seat</a>
+  </div>
+</div>
+
+<!-- INVITATION -->
+<section class="band-warm">
+  <svg class="decor-motif right" width="460" height="460" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="100" cy="100" r="98" stroke="#8B1A1A" stroke-width="1"/>
+        <path d="M100 20 L150 100 L100 180 L50 100 Z" stroke="#8B1A1A" stroke-width="1.5"/>
+        <path d="M100 55 L128 100 L100 145 L72 100 Z" stroke="#2A0A0A" stroke-width="1.5"/>
+        <circle cx="100" cy="100" r="12" fill="#8B1A1A"/>
+      </svg>
+  <div class="container" style="text-align:center; position:relative; z-index:1;">
+    <h2>Why This, Why Now</h2>
+    <p style="margin-left:auto; margin-right:auto;">Most people who want to meditate never really learn how. They download an app, sit for a few confused minutes, and quietly give up — not because meditation doesn't work, but because no one ever taught them what's actually happening, or why it matters.</p>
+    <p style="margin-left:auto; margin-right:auto;">This course is different. Over five live sessions, you'll learn to calm an overactive nervous system, work with the part of the mind that won't stop talking, and build a practice steady enough to carry you through the pressure of running a company, leading a team, or simply living a full life.</p>
+    <p class="quote" style="margin-left:auto; margin-right:auto;">Not another app. Not another thing to feel behind on. A real practice, taught in real time, by someone who's still learning it too.</p>
+  </div>
+</section>
+
+<!-- SESSIONS -->
+<section>
+  <div class="container-lg">
+    <h2 style="text-align:center;">The Five Sessions</h2>
+    <div class="sessions-shell">
+      <div class="sessions-col">
+    <div class="sessions-timeline">
+    <div class="session">
+      <div class="session-num">01</div>
+      <div class="session-body">
+        <h3>Why We Meditate</h3>
+        <p>What meditation actually is, and isn't. How it calms the nervous system, quiets the mind, and softens the parts of life that feel like suffering. Closes with your first guided sit.</p>
+      </div>
+    </div>
+
+    <div class="session">
+      <div class="session-num">02</div>
+      <div class="session-body">
+        <h3>Finding Your Technique</h3>
+        <p>Two more approaches, drawn from Yongey Mingyur Rinpoche and Sam Harris, so you can find what actually fits your mind. A longer guided sit, and open space for questions.</p>
+      </div>
+    </div>
+
+    <div class="session">
+      <div class="session-num">03</div>
+      <div class="session-body">
+        <h3>Sitting With What Comes Up</h3>
+        <p>A longer sit first, then real conversation about what happened in it — the restlessness, the wandering, the moments of stillness. This is where it stops being theory.</p>
+      </div>
+    </div>
+
+    <div class="session">
+      <div class="session-num">04</div>
+      <div class="session-body">
+        <h3>Working With Difficult Thoughts & Emotions</h3>
+        <p>An introduction to a different relationship with what arises — the idea that a hard thought or feeling isn't all of you, just a part of you trying to help. A gentler, more spacious way to sit with discomfort.</p>
+      </div>
+    </div>
+
+    <div class="session">
+      <div class="session-num">05</div>
+      <div class="session-body">
+        <h3>Building a Practice That Lasts</h3>
+        <p>How much is enough, what to do when you miss a day, and how to keep this alive once the course ends. We close with reflection, and a look at what deeper work with this can look like.</p>
+      </div>
+    </div>
+
+    </div>
+    </div>
+      <div class="session-decor"><svg width="180" height="180" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.14;">
+        <circle cx="100" cy="100" r="98" stroke="#8B1A1A" stroke-width="1"/>
+        <path d="M100 20 L150 100 L100 180 L50 100 Z" stroke="#8B1A1A" stroke-width="1.5"/>
+        <path d="M100 55 L128 100 L100 145 L72 100 Z" stroke="#2A0A0A" stroke-width="1.5"/>
+        <circle cx="100" cy="100" r="12" fill="#8B1A1A"/>
+      </svg></div>
+    </div>
+
+    <div class="followup">
+      <h3>Plus: One Private Session, Just for You</h3>
+      <p>After the group sessions end, we meet one-on-one to talk about what came up for you specifically — your practice, your obstacles, your next step.</p>
+    </div>
+  </div>
+</section>
+
+<!-- WHO -->
+<section>
+  <div class="container-lg">
+    <div class="who-split">
+      <div>
+        <h2>Who This Is For</h2>
+        <p>Anyone who wants to meditate but has never had it properly taught — especially those carrying more than they let on.</p>
+        <ul class="for-list">
+          <li>Founders and executives</li>
+          <li>Anyone in a season of transition</li>
+          <li>People who've tried apps and stopped</li>
+          <li>Those craving quiet, real conversation</li>
+          <li>Complete beginners</li>
+          <li>Experienced sitters wanting a reset</li>
+        </ul>
+      </div>
+      <div class="who-media">
+        <img src="images/meditate-who.jpg" alt="Group ceremony session with Sachin Barot">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section>
+  <div class="container-lg">
+    <div class="split-section reverse">
+      <div class="split-media">
+        <img src="images/meditate-about.jpg" alt="Sachin Barot seated, wearing ceremonial pendant">
+      </div>
+      <div class="split-text">
+        <h2>Taught by Sachin Barot</h2>
+        <p>Sachin leads Journey into the Heart, running retreats and ceremonies grounded in looking inside our hearts using a protocol built on Internal Family Systems (IFS), nature immersion, and contemplative practice.</p>
+        <p>Sachin is currently completing the foundational training in the Tergar Meditation Teacher Program, developed by Yongey Mingyur Rinpoche in the Kagyu and Nyingma lineages of Tibetan Buddhism. Tergar blends traditional meditation instruction — including Mahamudra and Dzogchen teachings — with contemplative neuroscience, making centuries-old practices accessible today. This foundational work deepens the meditation and mindfulness pillar of the Journey into the Heart Method™, grounding Sachin's guidance in a living lineage of authentic practice.</p>
+        <p>This course is the same practice at the center of his retreats — distilled into five sessions you can begin from home.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICE -->
+<section>
+  <div class="container">
+    <h2>The Investment</h2>
+    <div class="price-card">
+      <div class="sub">One cohort, fifteen seats</div>
+      <div class="amount">$650</div>
+      <div class="sub">Per person</div>
+      <ul class="price-includes">
+        <li>Five live 60-minute group sessions</li>
+        <li>One private 1:1 follow-up session</li>
+        <li>Small cohort — 15 people, not 200</li>
+        <li>Direct access to Sachin throughout</li>
+      </ul>
+      <a href="mailto:sachin@sachinbarot.com?subject=Learn%20to%20Meditate%20-%20I'm%20in" class="btn">Reserve Your Seat</a>
+      <div class="price-note">Next cohort begins [date] · Held live over Zoom</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRIVATE / TEAM -->
+<section>
+  <div class="container">
+    <h2>Prefer Something Private?</h2>
+    <p>This course is taught as a small live group, but the same five sessions can also be done one-on-one, or brought to your team or company, in person or live online. If that fits better, reach out directly and we'll design something around you.</p>
+    <a href="mailto:sachin@sachinbarot.com?subject=Private%20or%20Team%20Meditation%20Course" class="btn-outline">Ask About Private & Team Options</a>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta">
+  <div class="container">
+    <h2>Come Sit With Us</h2>
+    <p class="lede">Fifteen seats. Five sessions. One practice you'll actually keep.</p>
+    <a href="mailto:sachin@sachinbarot.com?subject=Learn%20to%20Meditate%20-%20I'm%20in" class="btn">Reserve Your Seat</a>
+  </div>
+</div>
+
+<footer>
+  <svg class="mark" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="48" fill="#F7F1E7"/>
+    <path d="M50 20 L65 50 L50 80 L35 50 Z" fill="#8B1A1A"/>
+    <path d="M50 34 L58 50 L50 66 L42 50 Z" fill="#2A0A0A"/>
+  </svg>
+  <div>Journey into the Heart</div>
+  <div style="margin-top:6px;"><a href="mailto:sachin@sachinbarot.com">sachin@sachinbarot.com</a> · <a href="https://www.sachinbarot.com">sachinbarot.com</a> · <a href="https://instagram.com/nycsachin">@nycsachin</a></div>
+  <div class="tagline">"This is not about escaping your life. It is about returning to it with greater clarity."</div>
+</footer>
+
+<div class="band-bottom"></div>
+
+</body>
+</html>

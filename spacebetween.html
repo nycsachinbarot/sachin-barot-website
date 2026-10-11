@@ -55,40 +55,61 @@
   .hero {
     background: var(--brown);
     color: var(--cream);
-    padding: 76px 0 68px;
+    padding: 88px 0 80px;
     text-align: center;
+    position: relative;
   }
 
   .mark {
     width: 46px;
     height: 46px;
     margin: 0 auto 32px;
-  }
-
-  .hero .kicker {
-    font-family: var(--sans);
-    font-size: 14px;
-    letter-spacing: 0.03em;
-    color: var(--rose);
-    margin-bottom: 18px;
+    display: block;
   }
 
   .hero h1 {
     font-family: var(--serif);
     font-weight: 500;
-    font-size: 44px;
-    line-height: 1.15;
-    max-width: 560px;
+    font-size: 76px;
+    line-height: 1.05;
+    margin: 0 auto 18px;
+  }
+
+  .hero-sub {
+    font-family: var(--serif);
+    font-size: 30px;
+    line-height: 1.3;
+    color: #E8DCCE;
+    max-width: 640px;
     margin: 0 auto 22px;
+  }
+
+  .hero .kicker {
+    font-family: var(--sans);
+    font-size: 14px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--rose);
+    margin-bottom: 28px;
   }
 
   .hero p.lede {
     font-family: var(--serif);
     font-style: italic;
-    font-size: 19px;
+    font-size: 20px;
     color: #E8DCCE;
-    max-width: 460px;
+    max-width: 520px;
     margin: 0 auto 36px;
+  }
+
+  .hero-portrait {
+    display: block;
+    width: 380px;
+    max-width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    margin: 56px auto 0;
+    clip-path: ellipse(48.5% 49% at 50% 50%);
   }
 
   .hero-meta {
@@ -262,6 +283,46 @@
     margin-top: 4px;
   }
 
+  /* ---------- TESTIMONIALS ---------- */
+  .testimonials {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    margin-top: 12px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .testimonial {
+    background: var(--cream);
+    border-top: 3px solid var(--crimson);
+    padding: 34px 30px 30px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .testimonial blockquote {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 18px;
+    line-height: 1.55;
+    color: var(--brown);
+  }
+
+  .testimonial figcaption {
+    margin-top: 22px;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--crimson);
+  }
+
+  @media (max-width: 860px) {
+    .testimonials { grid-template-columns: 1fr; max-width: 520px; margin-left: auto; margin-right: auto; }
+  }
+
   /* ---------- PRICE ---------- */
   .price-card {
     background: var(--brown);
@@ -343,7 +404,10 @@
   }
 
   @media (max-width: 560px) {
-    .hero h1 { font-size: 32px; }
+    .hero { padding: 72px 0 64px; }
+    .hero h1 { font-size: 48px; }
+    .hero-sub { font-size: 22px; }
+    .hero-portrait { width: 280px; margin-top: 44px; }
     .hero-meta { gap: 20px; }
     .for-list { grid-template-columns: 1fr; }
     .about { flex-direction: column; }
@@ -351,14 +415,6 @@
   }
 
   /* ---------- SPLIT LAYOUTS (photo integration) ---------- */
-  .hero-split {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    background: var(--brown);
-    align-items: stretch;
-    position: relative;
-  }
-
   .hero-social {
     position: absolute;
     top: 24px;
@@ -391,38 +447,6 @@
 
   .about-social a:hover { color: var(--brown); }
   .about-social svg { width: 20px; height: 20px; }
-
-  .hero-media {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 48px;
-  }
-
-  .hero-media img {
-    height: 460px;
-    width: auto;
-    max-width: 100%;
-    object-fit: cover;
-    display: block;
-    border-radius: 3px;
-    box-shadow: 0 18px 40px rgba(0,0,0,0.35);
-  }
-
-  .hero-content {
-    color: var(--cream);
-    padding: 64px 48px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: left;
-  }
-
-  .hero-content .mark { margin: 0 0 28px; }
-
-  .hero-content h1 { margin-left: 0; margin-right: 0; max-width: none; }
-  .hero-content p.lede { margin-left: 0; margin-right: 0; max-width: 42ch; }
-  .hero-content .hero-meta { justify-content: flex-start; }
 
   .split-section {
     display: grid;
@@ -465,16 +489,9 @@
   }
 
   @media (max-width: 760px) {
-    .hero-split { grid-template-columns: 1fr; }
     .hero-social { top: 16px; right: 20px; gap: 12px; }
     .hero-social svg { width: 18px; height: 18px; }
     .about-social { justify-content: center; }
-    .hero-media { padding: 32px; }
-    .hero-media img { height: 360px; }
-    .hero-content { padding: 48px 28px; text-align: center; }
-    .hero-content h1 { max-width: 100%; }
-    .hero-content p.lede { margin: 0 auto 36px; }
-    .hero-content .hero-meta { justify-content: center; }
     .split-section, .split-section.reverse { grid-template-columns: 1fr; gap: 28px; }
     .split-section.reverse .split-media, .split-section.reverse .split-text { order: unset; }
     .split-text { text-align: center; }
@@ -575,7 +592,7 @@
 <div class="band-top"></div>
 
 <!-- HERO -->
-<div class="hero-split">
+<div class="hero">
   <div class="hero-social">
     <a href="https://www.instagram.com/nycsachin/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
@@ -584,17 +601,15 @@
       <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
     </a>
   </div>
-  <div class="hero-media">
-    <img src="images/meditate-hero.jpg" alt="Sachin Barot">
-  </div>
-  <div class="hero-content">
+  <div class="container-lg">
     <svg class="mark" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
       <circle cx="50" cy="50" r="48" fill="#F7F1E7"/>
       <path d="M50 20 L65 50 L50 80 L35 50 Z" fill="#8B1A1A"/>
       <path d="M50 34 L58 50 L50 66 L42 50 Z" fill="#2A0A0A"/>
     </svg>
-    <div class="kicker">Journey into the Heart · A Live Online Course</div>
-    <h1>The Space Between: Where Meditation Meets the Many Voices Within</h1>
+    <h1>The Space Between</h1>
+    <div class="hero-sub">Where Meditation Meets the Many Voices Within</div>
+    <div class="kicker">A Live Online Course · Journey into the Heart</div>
     <p class="lede">A guided path into a real, lasting practice — taught live, in a small group, by someone who lives this every day.</p>
     <div class="hero-meta">
       <span><strong>5</strong>live sessions</span>
@@ -602,6 +617,7 @@
       <span><strong>15</strong>seats only</span>
     </div>
     <a href="mailto:sachin@sachinbarot.com?subject=Learn%20to%20Meditate%20-%20I'm%20in" class="btn">Reserve Your Seat</a>
+    <img class="hero-portrait" src="images/space-between-hero.webp" alt="Sachin Barot meditating in a Tibetan Buddhist temple">
   </div>
 </div>
 
@@ -733,13 +749,34 @@
   </div>
 </section>
 
+<!-- TESTIMONIALS -->
+<section class="band-warm">
+  <div class="container-lg">
+    <h2 style="text-align:center;">What People Are Saying</h2>
+    <div class="testimonials">
+      <figure class="testimonial">
+        <blockquote>"I attended Sachin's retreat in Montana, and I'm forever grateful. It was an experience that changed my life."</blockquote>
+        <figcaption>Stu</figcaption>
+      </figure>
+      <figure class="testimonial">
+        <blockquote>"Working with Sachin, I was able to connect with parts of myself I had never been able to process. He is gifted beyond words."</blockquote>
+        <figcaption>Pav</figcaption>
+      </figure>
+      <figure class="testimonial">
+        <blockquote>"Sachin came into my life when I needed him most. His wisdom and experience helped me reconnect with myself and rebuild some of my most important relationships."</blockquote>
+        <figcaption>Noga</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
 <!-- PRICE -->
 <section>
   <div class="container">
-    <h2>The Investment</h2>
+    <h2 style="text-align:center;">The Investment</h2>
     <div class="price-card">
       <div class="sub">One cohort, fifteen seats</div>
-      <div class="amount">$650</div>
+      <div class="amount">$999</div>
       <div class="sub">Per person</div>
       <ul class="price-includes">
         <li>Five live 60-minute group sessions</li>
@@ -755,9 +792,9 @@
 
 <!-- PRIVATE / TEAM -->
 <section>
-  <div class="container">
+  <div class="container" style="text-align:center;">
     <h2>Prefer Something Private?</h2>
-    <p>This course is taught as a small live group, but the same five sessions can also be done one-on-one, or brought to your team or company, in person or live online. If that fits better, reach out directly and we'll design something around you.</p>
+    <p style="margin:0 auto 28px;">This course is taught as a small live group, but the same five sessions can also be done one-on-one, or brought to your team or company, in person or live online. If that fits better, reach out directly and we'll design something around you.</p>
     <a href="mailto:sachin@sachinbarot.com?subject=Private%20or%20Team%20Meditation%20Course" class="btn-outline">Ask About Private & Team Options</a>
   </div>
 </section>

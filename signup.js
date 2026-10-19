@@ -4,7 +4,9 @@
 // any element with [data-signup]. Add data-popup="off" to <body> to skip
 // the popup on a page.
 (() => {
-  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/xppqerrr';
+  // Substack's no-JavaScript sign-up endpoint. Forms post into a hidden iframe
+  // so the visitor stays on the site and never sees Substack's page.
+  const SUBSTACK_ENDPOINT = 'https://sachinbarot.substack.com/api/v1/free?nojs=true';
   const SUBSCRIBED_KEY = 'jith_meditation_signup';
   const POPUP_DELAY_MS = 1200;
 
@@ -15,7 +17,6 @@
     button: 'Send Me the Meditation',
     note: 'No spam. Unsubscribe anytime.',
     success: 'Thank you. Your meditation will arrive in your inbox soon.',
-    error: 'Something went wrong. Please try again, or email sachin@sachinbarot.com.',
   };
 
   const isSubscribed = () => {
@@ -29,50 +30,31 @@
     <div class="section-label">${COPY.label}</div>
     <h3>${COPY.title}</h3>
     <p class="signup-sub">${COPY.sub}</p>
-    <form class="signup-form">
+    <form class="signup-form" action="${SUBSTACK_ENDPOINT}" method="post" target="substack-signup">
       <input type="email" name="email" placeholder="your@email.com" aria-label="Email address" required />
-      <input type="text" name="_gotcha" class="signup-honeypot" tabindex="-1" autocomplete="off" aria-hidden="true" />
       <button type="submit" class="btn btn-primary">${COPY.button}</button>
     </form>
-    <p class="signup-error" role="alert" hidden>${COPY.error}</p>
     <p class="signup-note">${COPY.note}</p>
     <p class="signup-success" role="status">${COPY.success}</p>
   `;
 
-  // Sends the email to Formspree; only marks the visitor subscribed if it
-  // actually went through, otherwise shows an error so no sign-up is lost.
-  const wire = (card, source, onSuccess) => {
-    const form = card.querySelector('.signup-form');
-    const button = form.querySelector('button');
-    const error = card.querySelector('.signup-error');
-
-    form.addEventListener('submit', async (e) => {
-      e.preventDefault();
-      if (form.elements._gotcha.value) return;
-
-      const data = new FormData(form);
-      data.append('form-type', 'free-meditation-signup');
-      data.append('source', source);
-      data.append('_subject', 'New sign-up: The Space Between meditation');
-
-      button.disabled = true;
-      error.hidden = true;
-      try {
-        const res = await fetch(FORMSPREE_ENDPOINT, {
-          method: 'POST',
-          headers: { Accept: 'application/json' },
-          body: data,
-        });
-        if (!res.ok) throw new Error(`Formspree ${res.status}`);
-        markSubscribed();
+  // Lets the form post to Substack (into the hidden iframe), then shows the
+  // thank-you message here and stops the popup from returning.
+  const wire = (card, onSuccess) => {
+    card.querySelector('.signup-form').addEventListener('submit', () => {
+      markSubscribed();
+      setTimeout(() => {
         document.querySelectorAll('.signup-card').forEach(c => c.classList.add('submitted'));
         if (onSuccess) onSuccess();
-      } catch {
-        error.hidden = false;
-        button.disabled = false;
-      }
+      }, 0);
     });
   };
+
+  const frame = document.createElement('iframe');
+  frame.name = 'substack-signup';
+  frame.title = 'Substack sign-up';
+  frame.hidden = true;
+  document.body.appendChild(frame);
 
   // Inline boxes
   document.querySelectorAll('[data-signup]').forEach(slot => {
@@ -81,7 +63,7 @@
     card.innerHTML = cardHTML();
     if (isSubscribed()) card.classList.add('submitted');
     slot.appendChild(card);
-    wire(card, `${location.pathname} (${slot.dataset.signup})`);
+    wire(card);
   });
 
   // Popup
@@ -107,7 +89,7 @@
     if (e.key === 'Escape') hidePopup();
   });
 
-  wire(overlay.querySelector('.signup-card'), `${location.pathname} (popup)`, () => setTimeout(hidePopup, 3000));
+  wire(overlay.querySelector('.signup-card'), () => setTimeout(hidePopup, 3000));
 
   setTimeout(() => overlay.classList.add('visible'), POPUP_DELAY_MS);
 })();

@@ -580,6 +580,63 @@
     height: 100%;
   }
 
+  /* ---------- EMAIL SIGN-UP ---------- */
+  .signup-section {
+    background: var(--cream-warm);
+    border-top: 1px solid var(--line);
+    padding: 64px 28px;
+  }
+  .signup-card { max-width: 540px; margin: 0 auto; text-align: center; }
+  .signup-card .section-label {
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--crimson);
+    margin-bottom: 14px;
+  }
+  .signup-card h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 28px;
+    line-height: 1.25;
+    color: var(--brown);
+    margin-bottom: 12px;
+  }
+  .signup-card p { margin-left: auto; margin-right: auto; }
+  .signup-sub { margin-bottom: 26px; }
+  .signup-form { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 12px; }
+  .signup-form input {
+    flex: 1 1 240px;
+    min-width: 0;
+    padding: 14px 16px;
+    border: 1px solid var(--line);
+    border-radius: 3px;
+    background: #fff;
+    font-family: var(--sans);
+    font-size: 15px;
+    color: var(--ink);
+  }
+  .signup-form input:focus { outline: none; border-color: var(--crimson); }
+  .signup-form .btn { flex: 1 1 auto; border: none; cursor: pointer; }
+  .signup-honeypot { position: absolute; left: -9999px; }
+  .signup-note { font-size: 13px; }
+  .signup-error { font-size: 14px; color: var(--crimson); margin-bottom: 10px; }
+  .signup-success {
+    display: none;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 20px;
+    color: var(--crimson);
+  }
+  .signup-card.submitted .signup-form,
+  .signup-card.submitted .signup-sub,
+  .signup-card.submitted .signup-note,
+  .signup-card.submitted .signup-error { display: none; }
+  .signup-card.submitted .signup-success { display: block; }
+  @media (max-width: 560px) {
+    .signup-form { flex-direction: column; }
+  }
+
   @media (max-width: 760px) {
     .sessions-shell { grid-template-columns: 1fr; }
     .session-decor { display: none; }
@@ -587,7 +644,7 @@
   }
 </style>
 </head>
-<body>
+<body data-popup="off">
 
 <div class="band-top"></div>
 
@@ -808,6 +865,9 @@
   </div>
 </div>
 
+<!-- EMAIL SIGN-UP -->
+<div class="signup-section" data-signup="footer"></div>
+
 <footer>
   <svg class="mark" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
     <circle cx="50" cy="50" r="48" fill="#F7F1E7"/>
@@ -821,5 +881,6 @@
 
 <div class="band-bottom"></div>
 
+<script src="signup.js"></script>
 </body>
 </html>

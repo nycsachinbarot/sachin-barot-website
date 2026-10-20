@@ -367,15 +367,15 @@ body {
 }
 
 @media (max-width: 768px) {
-  .work-heading-photo {
-    width: 100%;
-    max-width: 360px;
-    height: auto;
+  .work-heading-row {
+    flex-direction: column;
+    align-items: flex-start;
   }
 
   .work-heading-photo {
     width: 100%;
     max-width: 320px;
+    height: auto;
   }
 }
 
@@ -1778,6 +1778,20 @@ footer {
 }
 .signup-card.submitted .signup-success {
   display: block;
+}
+
+@media (max-width: 768px) {
+  .signup-form input,
+  .signup-form .btn { flex: none; }
+}
+@media (max-width: 480px) {
+  .btn-large {
+    white-space: normal;
+    justify-content: center;
+    text-align: center;
+    padding-left: 1.75rem;
+    padding-right: 1.75rem;
+  }
 }
 
 /* Inline sign-up box (before the footer on every page) */

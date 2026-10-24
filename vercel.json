@@ -2,7 +2,8 @@
   "rewrites": [
     { "source": "/meditate", "destination": "/spacebetween.html" },
     { "source": "/meditate.html", "destination": "/spacebetween.html" },
-    { "source": "/spacebetween", "destination": "/spacebetween.html" }
+    { "source": "/spacebetween", "destination": "/spacebetween.html" },
+    { "source": "/sweat440", "destination": "/sweat440.html" }
   ],
   "redirects": [
     { "source": "/writing.html", "destination": "/offerings.html", "permanent": true }

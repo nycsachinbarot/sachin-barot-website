@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sweat440 Members · Sachin Barot</title>
+  <meta name="description" content="Sweat440 members: 25% off all services with Sachin Barot, plus a free 10-minute guided meditation." />
+  <meta name="robots" content="noindex" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="images/apple-touch-icon.png" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .offer-page {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 3.5rem 1.25rem;
+      text-align: center;
+      background: var(--bg);
+    }
+    .offer-brand {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      color: var(--text);
+      text-decoration: none;
+      margin-bottom: 2.5rem;
+    }
+    .offer-card {
+      width: 100%;
+      max-width: 480px;
+      padding: 2.75rem 2rem 2.25rem;
+      background: var(--bg-card);
+      border: 1px solid var(--border-mid);
+    }
+    .offer-card .section-label { justify-content: center; margin-bottom: 1.25rem; }
+    .offer-card h1 {
+      font-family: var(--font-display);
+      font-weight: 400;
+      font-size: clamp(2rem, 7vw, 2.6rem);
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .offer-sub {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin-bottom: 2rem;
+    }
+    .offer-form { display: flex; flex-direction: column; gap: 0.75rem; text-align: left; }
+    .offer-form input {
+      width: 100%;
+      background: var(--bg);
+      border: 1px solid var(--border-mid);
+      border-radius: 2px;
+      padding: 0.95rem 1.1rem;
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 1rem;
+    }
+    .offer-form input:focus { outline: none; border-color: var(--accent); }
+    .offer-form input::placeholder { color: var(--text-dim); }
+    .offer-form .btn { justify-content: center; margin-top: 0.25rem; padding: 1.05rem 1.5rem; }
+    .offer-note { font-size: 0.75rem; color: var(--text-dim); margin-top: 1rem; }
+    .offer-error { font-size: 0.85rem; color: #e08a7a; margin-top: 0.75rem; }
+    .offer-success { display: none; }
+    .offer-card.submitted .offer-form,
+    .offer-card.submitted .offer-sub,
+    .offer-card.submitted .offer-note,
+    .offer-card.submitted .offer-error { display: none; }
+    .offer-card.submitted .offer-success { display: block; }
+    .offer-success p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+    }
+    .offer-success .btn { justify-content: center; width: 100%; }
+    .offer-more {
+      margin-top: 2rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+    .offer-more a { color: var(--accent); text-decoration: none; }
+  </style>
+</head>
+<body data-popup="off">
+
+  <main class="offer-page">
+    <a href="index.html" class="offer-brand">Sachin Barot</a>
+
+    <div class="offer-card" id="offerCard">
+      <div class="section-label">Welcome, Sweat440 Members</div>
+      <h1>25% off all services, and a gift to begin.</h1>
+      <p class="offer-sub">
+        Leave your name and email to receive your Sweat440 member discount and
+        The Space Between, a free 10-minute guided meditation.
+      </p>
+
+      <form class="offer-form" id="offerForm">
+        <input type="text" name="firstName" placeholder="First name" aria-label="First name" autocomplete="given-name" />
+        <input type="email" name="email" placeholder="your@email.com" aria-label="Email address" autocomplete="email" required />
+        <button type="submit" class="btn btn-primary">Claim My 25% Off</button>
+      </form>
+      <p class="offer-error" id="offerError" role="alert" hidden>Something went wrong. Please try again, or email sachin@sachinbarot.com.</p>
+      <p class="offer-note">No spam. Unsubscribe anytime.</p>
+
+      <div class="offer-success" role="status">
+        <p>
+          Thank you. Your member offer and meditation are on their way to your inbox.
+          If you don't see them in a few minutes, check your Promotions or spam folder.
+        </p>
+        <a href="https://sachinbarot.substack.com/p/the-space-between-a-10-minute-guided" target="_blank" rel="noopener noreferrer" class="btn btn-primary">Listen to the Meditation Now</a>
+      </div>
+    </div>
+
+    <p class="offer-more">Meditation · Inner Work · Retreats &nbsp;·&nbsp; <a href="index.html">Explore sachinbarot.com</a></p>
+  </main>
+
+  <script src="signup.js?v=20261024"></script>
+  <script>
+    (() => {
+      const form = document.getElementById('offerForm');
+      const card = document.getElementById('offerCard');
+      const error = document.getElementById('offerError');
+      const button = form.querySelector('button');
+
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        button.disabled = true;
+        error.hidden = true;
+        try {
+          await window.jithSubscribe({
+            email: form.elements.email.value.trim(),
+            firstName: form.elements.firstName.value.trim(),
+            source: 'Sweat440 table (QR code)',
+            properties: { 'Met At': 'Sweat440', 'Signup Offer': 'Sweat440 25% off' },
+          });
+          card.classList.add('submitted');
+        } catch {
+          error.hidden = false;
+          button.disabled = false;
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

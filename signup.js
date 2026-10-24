@@ -1,13 +1,14 @@
 // ─── EMAIL SIGN-UP: POPUP + INLINE BOXES ─────────────────────
-// The popup shows on arrival on every page until the visitor signs up.
-// Closing it hides it for the current page only. Inline boxes render into
-// any element with [data-signup]. Add data-popup="off" to <body> to skip
-// the popup on a page.
+// Sign-ups go to the "Email List" in Klaviyo, whose welcome flow sends the
+// meditation. The popup shows on arrival on every page until the visitor
+// signs up; closing it hides it for the current page only. Inline boxes
+// render into any element with [data-signup]. Add data-popup="off" to
+// <body> to skip the popup on a page. Other pages can call
+// window.jithSubscribe() directly (see sweat440.html).
 (() => {
-  // Substack's no-JavaScript sign-up endpoint. Forms post into a hidden iframe
-  // so the visitor stays on the site and never sees Substack's page.
-  const SUBSTACK_ENDPOINT = 'https://sachinbarot.substack.com/api/v1/free?nojs=true';
-  const SUBSCRIBED_KEY = 'jith_meditation_signup';
+  const KLAVIYO_COMPANY_ID = 'VDeL2T';   // public site key, safe to publish
+  const KLAVIYO_LIST_ID = 'TWa8TC';      // "Email List"
+  const SUBSCRIBED_KEY = 'jith_signup_klaviyo';
   const POPUP_DELAY_MS = 1200;
 
   const COPY = {
@@ -16,8 +17,33 @@
     sub: 'Receive The Space Between, a free 10-minute guided meditation, along with occasional reflections on the inward journey.',
     button: 'Send Me the Meditation',
     note: 'No spam. Unsubscribe anytime.',
-    success: 'Thank you. Your meditation will arrive in your inbox soon.',
+    success: "Thank you. Your meditation is on its way. If you don't see it in a few minutes, check your Promotions or spam folder.",
+    error: 'Something went wrong. Please try again, or email sachin@sachinbarot.com.',
   };
+
+  // Adds the email to the Klaviyo list. Resolves only when Klaviyo accepts it.
+  const subscribe = async ({ email, firstName, source, properties }) => {
+    const profile = { email };
+    if (firstName) profile.first_name = firstName;
+    if (properties) profile.properties = properties;
+
+    const res = await fetch(`https://a.klaviyo.com/client/subscriptions?company_id=${KLAVIYO_COMPANY_ID}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/vnd.api+json', revision: '2024-10-15' },
+      body: JSON.stringify({
+        data: {
+          type: 'subscription',
+          attributes: {
+            custom_source: source,
+            profile: { data: { type: 'profile', attributes: profile } },
+          },
+          relationships: { list: { data: { type: 'list', id: KLAVIYO_LIST_ID } } },
+        },
+      }),
+    });
+    if (!res.ok) throw new Error(`Klaviyo ${res.status}`);
+  };
+  window.jithSubscribe = subscribe;
 
   const isSubscribed = () => {
     try { return !!localStorage.getItem(SUBSCRIBED_KEY); } catch { return false; }
@@ -30,31 +56,37 @@
     <div class="section-label">${COPY.label}</div>
     <h3>${COPY.title}</h3>
     <p class="signup-sub">${COPY.sub}</p>
-    <form class="signup-form" action="${SUBSTACK_ENDPOINT}" method="post" target="substack-signup">
+    <form class="signup-form">
       <input type="email" name="email" placeholder="your@email.com" aria-label="Email address" required />
       <button type="submit" class="btn btn-primary">${COPY.button}</button>
     </form>
+    <p class="signup-error" role="alert" hidden>${COPY.error}</p>
     <p class="signup-note">${COPY.note}</p>
     <p class="signup-success" role="status">${COPY.success}</p>
   `;
 
-  // Lets the form post to Substack (into the hidden iframe), then shows the
-  // thank-you message here and stops the popup from returning.
-  const wire = (card, onSuccess) => {
-    card.querySelector('.signup-form').addEventListener('submit', () => {
-      markSubscribed();
-      setTimeout(() => {
+  // Only marks the visitor subscribed if Klaviyo accepted the email;
+  // otherwise shows an error so no sign-up is silently lost.
+  const wire = (card, source, onSuccess) => {
+    const form = card.querySelector('.signup-form');
+    const button = form.querySelector('button');
+    const error = card.querySelector('.signup-error');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      button.disabled = true;
+      error.hidden = true;
+      try {
+        await subscribe({ email: form.elements.email.value.trim(), source });
+        markSubscribed();
         document.querySelectorAll('.signup-card').forEach(c => c.classList.add('submitted'));
         if (onSuccess) onSuccess();
-      }, 0);
+      } catch {
+        error.hidden = false;
+        button.disabled = false;
+      }
     });
   };
-
-  const frame = document.createElement('iframe');
-  frame.name = 'substack-signup';
-  frame.title = 'Substack sign-up';
-  frame.hidden = true;
-  document.body.appendChild(frame);
 
   // Inline boxes
   document.querySelectorAll('[data-signup]').forEach(slot => {
@@ -63,7 +95,7 @@
     card.innerHTML = cardHTML();
     if (isSubscribed()) card.classList.add('submitted');
     slot.appendChild(card);
-    wire(card);
+    wire(card, `Website: ${location.pathname} (${slot.dataset.signup})`);
   });
 
   // Popup
@@ -89,7 +121,7 @@
     if (e.key === 'Escape') hidePopup();
   });
 
-  wire(overlay.querySelector('.signup-card'), () => setTimeout(hidePopup, 3000));
+  wire(overlay.querySelector('.signup-card'), `Website: ${location.pathname} (popup)`, () => setTimeout(hidePopup, 6000));
 
   setTimeout(() => overlay.classList.add('visible'), POPUP_DELAY_MS);
 })();

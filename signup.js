@@ -17,7 +17,7 @@
     sub: 'Receive The Space Between, a free 10-minute guided meditation, along with occasional reflections on the inward journey.',
     button: 'Send Me the Meditation',
     note: 'No spam. Unsubscribe anytime.',
-    success: "Thank you. Your meditation is on its way. If you don't see it in a few minutes, check your Promotions or spam folder.",
+    success: "Thank you. Your meditation is on its way. If it lands in Promotions or spam, drag it to your main inbox so my notes reach you.",
     error: 'Something went wrong. Please try again, or email sachin@sachinbarot.com.',
   };
 

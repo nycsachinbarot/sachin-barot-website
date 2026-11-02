@@ -1,0 +1,189 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Good to Meet You | Sachin Barot</title>
+<meta name="description" content="Met Sachin at Eudēmonia 2026? Stay connected.">
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Karla:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+/* Layout: one narrow column, phone-first (people arrive from a QR code). Form first, then the "about me" page appears in place after submit. */
+:root{
+  --crimson:#8B1A1A; --ink:#2A0A0A; --cream:#FAF6F0; --paper:#FFFDF9;
+  --muted:#6E5A55; --line:#E6DCD2; --chip:#F3EBE2; --ok:#2F6B45;
+  --display:"Cormorant Garamond", Georgia, "Times New Roman", serif;
+  --body:"Karla", "Helvetica Neue", Arial, sans-serif;
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--cream);color:var(--ink);font:400 17px/1.6 var(--body);-webkit-font-smoothing:antialiased}
+.wrap{max-width:560px;margin:0 auto;padding-block:28px 56px;padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
+header{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+header img{width:44px;height:44px}
+header .brand{font:600 15px/1.2 var(--body);letter-spacing:.04em}
+header .brand span{display:block;font-weight:400;color:var(--muted);letter-spacing:0}
+.eyebrow{font:700 12px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--crimson);margin:0 0 12px}
+h1{font:600 clamp(40px,11vw,56px)/1.02 var(--display);margin:0 0 14px;text-wrap:balance}
+h2{font:600 25px/1.2 var(--display);margin:0 0 10px;text-wrap:balance}
+p{margin:0}
+.lede{color:var(--muted);margin-bottom:26px}
+form{display:grid;gap:16px;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px}
+label{display:grid;gap:6px;font:500 14px/1.3 var(--body)}
+input[type=text],input[type=email]{font:400 17px var(--body);color:var(--ink);background:#fff;border:1px solid var(--line);border-radius:10px;padding:13px 14px;width:100%}
+input:focus-visible,button:focus-visible,.chip input:focus-visible+span,a:focus-visible{outline:2px solid var(--crimson);outline-offset:2px}
+fieldset{border:0;margin:0;padding:0;display:grid;gap:8px}
+legend{font:500 14px/1.3 var(--body);margin-bottom:8px;padding:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0}
+.chip span{display:inline-block;padding:9px 14px;border-radius:999px;background:var(--chip);border:1px solid transparent;font-size:15px;cursor:pointer;user-select:none}
+.chip input:checked+span{background:var(--ink);color:var(--cream)}
+button{font:700 17px var(--body);background:var(--crimson);color:#fff;border:0;border-radius:10px;padding:15px 18px;cursor:pointer}
+button[disabled]{opacity:.6;cursor:wait}
+.fine{font-size:13px;color:var(--muted);text-align:center}
+.err{color:var(--crimson);font-size:15px}
+/* thank-you page */
+.thanks .check{display:inline-flex;align-items:center;gap:8px;color:var(--ok);font:700 14px var(--body);margin-bottom:14px}
+section{padding-block:26px;border-top:1px solid var(--line);display:grid;gap:12px}
+section:first-of-type{border-top:0;padding-top:4px}
+.offer{display:grid;gap:14px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 18px;display:grid;gap:4px}
+.card b{font:600 22px/1.15 var(--display)}
+.card small{color:var(--muted);font-size:15px}
+a{color:var(--crimson)}
+.cta{display:block;text-align:center;text-decoration:none;background:var(--ink);color:var(--cream);border-radius:10px;padding:15px 18px;font-weight:700}
+.links{display:flex;flex-wrap:wrap;gap:10px 18px;font-weight:500}
+footer{margin-top:36px;font-size:13px;color:var(--muted);text-align:center}
+@media (prefers-reduced-motion:no-preference){.thanks{animation:rise .5s ease-out both}@keyframes rise{from{opacity:.0;transform:translateY(8px)}to{opacity:1;transform:none}}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <img src="https://cdn.klaviyomail.com/company/VDeL2T/images/fc4d0ab5-00f4-4f35-b37b-07984fdb4d87.png" alt="Journey into the Heart logo">
+    <div class="brand">Sachin Barot<span>Journey into the Heart</span></div>
+  </header>
+
+  <!-- Step 1: capture -->
+  <main id="step-form">
+    <p class="eyebrow">Eudēmonia 2026 · West Palm Beach</p>
+    <h1>Good to meet you.</h1>
+    <p class="lede">Leave your email and I'll be in touch after the conference. As a thank you, here's a 10-minute guided meditation to use while you're here.</p>
+
+    <form id="f" novalidate>
+      <label for="fn">First name
+        <input id="fn" name="first_name" type="text" autocomplete="given-name" required>
+      </label>
+      <label for="em">Email
+        <input id="em" name="email" type="email" autocomplete="email" inputmode="email" required>
+      </label>
+      <fieldset>
+        <legend>What would you like to talk about? <span style="color:var(--muted)">(optional)</span></legend>
+        <div class="chips">
+          <label class="chip"><input type="checkbox" id="i-ret" value="Retreats"><span>Retreats</span></label>
+          <label class="chip"><input type="checkbox" id="i-alu" value="Alumina"><span>Alumina Tulum</span></label>
+          <label class="chip"><input type="checkbox" id="i-work" value="Working together"><span>Working together</span></label>
+          <label class="chip"><input type="checkbox" id="i-conn" value="Staying connected"><span>Just staying connected</span></label>
+        </div>
+      </fieldset>
+      <p id="err" class="err" hidden></p>
+      <button id="go" type="submit">Stay connected</button>
+      <p class="fine">A personal note from me, not a newsletter blast. Unsubscribe anytime.</p>
+    </form>
+  </main>
+
+  <!-- Step 2: thank you + about -->
+  <main id="step-thanks" class="thanks" hidden>
+    <section>
+      <span class="check">✓ You're in. Check your inbox in a minute.</span>
+      <h1 id="ty">Thank you.</h1>
+      <p>I'm glad our paths crossed at Eudēmonia. Here's a glimpse of what I'm building.</p>
+    </section>
+
+    <section>
+      <p class="eyebrow">About me</p>
+      <h2>I bring together founders, executives and conscious leaders who want their work to matter.</h2>
+      <p>I spent most of my career on Wall Street and built a company of my own. Now I'm gathering people ready to put their capital and talent behind some of the world's biggest problems. Mental wellness. The health of the planet.</p>
+      <p><a href="https://www.sachinbarot.com/story.html" style="font-weight:700">Read my story →</a></p>
+    </section>
+
+    <section>
+      <p class="eyebrow">What I'm building</p>
+      <div class="offer">
+        <div class="card"><b>Live events</b><small>Retreats, summits, gala dinners and conferences around the world. Each one is a portal into deeper awakening, connection and personal mastery.</small></div>
+        <div class="card"><b>Conscious capital</b><small>Backing founders and companies working on mental wellness and earth preservation. More on this soon.</small></div>
+        <div class="card"><b>Alumina Tulum</b><small>A wellness resort in Tulum opening early 2027. A home for these gatherings. <a href="https://aluminatulum.com" target="_blank" rel="noopener">aluminatulum.com</a></small></div>
+      </div>
+    </section>
+
+    <section>
+      <p class="eyebrow">Your thank-you</p>
+      <p>Something new is taking shape. You'll be among the first to hear about it.</p>
+      <p>Until then, here's a 10-minute guided meditation called <em>The Space Between</em>. Use it to ground yourself between sessions.</p>
+      <a class="cta" href="https://sachinbarot.substack.com/p/the-space-between-a-10-minute-guided" target="_blank" rel="noopener">Listen now</a>
+    </section>
+
+    <section>
+      <p class="eyebrow">Stay in touch</p>
+      <p>The easiest way is to reply to my email. I read every message.</p>
+      <div class="links">
+        <a href="https://www.linkedin.com/in/sachin-barot" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="https://www.instagram.com/nycsachin" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://www.sachinbarot.com" target="_blank" rel="noopener">sachinbarot.com</a>
+        <span>sachin@sachinbarot.com</span>
+      </div>
+    </section>
+  </main>
+
+  <footer>Journey into the Heart · sachinbarot.com</footer>
+</div>
+
+<script>
+(function(){
+  var KLAVIYO_PUBLIC_KEY = "VDeL2T";      // public site key (safe to expose)
+  var LIST_ID = "UnTCf2";                 // Eudēmonia 2026 Connections
+  var f = document.getElementById("f"), err = document.getElementById("err"), go = document.getElementById("go");
+
+  function showThanks(name){
+    document.getElementById("step-form").hidden = true;
+    var t = document.getElementById("step-thanks");
+    document.getElementById("ty").textContent = name ? ("Thank you, " + name + ".") : "Thank you.";
+    t.hidden = false; window.scrollTo(0,0);
+  }
+
+  f.addEventListener("submit", function(e){
+    e.preventDefault();
+    err.hidden = true;
+    var name = document.getElementById("fn").value.trim();
+    var email = document.getElementById("em").value.trim();
+    if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ err.textContent = "Please enter a valid email address."; err.hidden = false; return; }
+    var interests = Array.prototype.slice.call(f.querySelectorAll(".chip input:checked")).map(function(c){return c.value;});
+    var body = {data:{type:"subscription",attributes:{
+      custom_source:"Eudemonia 2026 QR",
+      profile:{data:{type:"profile",attributes:{
+        email: email,
+        first_name: name || undefined,
+        properties:{ "Met At":"Eudemonia 2026", "Eudemonia Interest": interests.join(", ") || "Not specified" }
+      }}}
+    }, relationships:{ list:{ data:{ type:"list", id:LIST_ID } } }}};
+    go.disabled = true; go.textContent = "Sending…";
+    fetch("https://a.klaviyo.com/client/subscriptions?company_id=" + KLAVIYO_PUBLIC_KEY, {
+      method:"POST",
+      headers:{ "Content-Type":"application/vnd.api+json", "revision":"2024-10-15" },
+      body: JSON.stringify(body)
+    }).then(function(r){
+      if(r.status === 202 || r.ok){ showThanks(name); }
+      else { throw new Error(r.status); }
+    }).catch(function(){
+      go.disabled = false; go.textContent = "Stay connected";
+      err.textContent = "That didn't go through. Please try again, or email me at sachin@sachinbarot.com.";
+      err.hidden = false;
+    });
+  });
+})();
+</script>
+</body>
+</html>

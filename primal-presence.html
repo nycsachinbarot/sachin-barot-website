@@ -1,0 +1,193 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Primal Presence: A Journey into the Space Between | Journey into the Heart</title>
+<meta name="description" content="A one-hour class at SWEAT440 in Coral Springs on Saturday, November 28. Get the details and your link to register.">
+<meta property="og:title" content="Primal Presence: A Journey into the Space Between">
+<meta property="og:description" content="A one-hour class at SWEAT440 in Coral Springs on Saturday, November 28. Normally $50, this day $25.">
+<meta property="og:image" content="https://www.sachinbarot.com/images/meditate-hero.jpg">
+<meta name="theme-color" content="#2A0A0A">
+<link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="/images/meditate-hero.jpg">
+<style>
+  :root{
+    --crimson:#8B1A1A; --crimson-deep:#6E1414; --brown:#2A0A0A; --cream:#FAF6F0;
+    --muted:#5A3C32; --line:#E7DCCF; --gold:#B8893E; --paper:#FFFFFF;
+    --display:'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    --body:'EB Garamond', Georgia, 'Times New Roman', serif;
+    --label:Arial, Helvetica, sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--cream);color:var(--brown);font:400 19px/1.65 var(--body);-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:var(--crimson)}
+  .wrap{max-width:640px;margin:0 auto;padding:0 20px}
+  .eyebrow{font:700 11.5px/1 var(--label);letter-spacing:.22em;text-transform:uppercase;color:var(--crimson);margin:0 0 14px}
+  .center{text-align:center}
+  p{margin:0 0 16px}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;color:var(--cream);background:var(--brown);overflow:hidden}
+  .hero::after{content:'';position:absolute;left:0;right:0;top:0;height:6px;background:var(--crimson);z-index:2}
+  .hero-media{position:relative;height:min(64svh,620px);min-height:380px}
+  .hero-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 52%}
+  .hero-media::after{content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(42,10,10,.1) 0%,rgba(42,10,10,0) 55%,rgba(42,10,10,.7) 85%,var(--brown) 100%)}
+  .hero-inner{position:relative;z-index:2;width:100%;max-width:640px;margin:-28px auto 0;padding:0 20px 44px;text-align:center}
+  .hero .eyebrow{color:#E9C9A0}
+  .hero h1{font:600 clamp(48px,14vw,76px)/1 var(--display);margin:0 0 10px;letter-spacing:.005em}
+  .hero .sub{font:italic 500 clamp(21px,5.6vw,26px)/1.3 var(--display);color:#F1DFC8;margin:0 0 26px}
+  .date-pill{display:inline-block;border-top:1px solid rgba(233,201,160,.45);border-bottom:1px solid rgba(233,201,160,.45);padding:14px 8px;font:500 18px/1.4 var(--body)}
+  .date-pill strong{display:block;font:600 26px/1.15 var(--display);color:#fff;margin-bottom:2px}
+  .date-pill span{display:block;font:13px/1.5 var(--label);color:#E9D5BC;margin-top:6px;letter-spacing:.02em}
+  .hero .btn{margin-top:22px}
+
+  .btn{display:inline-block;background:var(--crimson);color:#fff;text-decoration:none;font:700 16px/1 var(--label);letter-spacing:.03em;padding:17px 30px;border-radius:999px;box-shadow:0 8px 22px rgba(139,26,26,.32)}
+  .btn:hover{background:var(--crimson-deep)}
+  :focus-visible{outline:3px solid var(--gold);outline-offset:3px}
+
+  /* ---------- Where ---------- */
+  .where{padding:30px 0 6px;text-align:center}
+  .where strong{display:block;font:600 30px/1.15 var(--display);color:var(--crimson)}
+  .where .time{font-size:19px}
+  .where small{display:block;font:14px/1.5 var(--label);color:var(--muted);margin-top:6px}
+
+  /* ---------- Ornament ---------- */
+  .ornament{display:flex;align-items:center;justify-content:center;gap:12px;margin:26px 0 4px;color:var(--gold)}
+  .ornament::before,.ornament::after{content:'';height:1px;width:70px;background:linear-gradient(90deg,transparent,var(--gold))}
+  .ornament::after{background:linear-gradient(90deg,var(--gold),transparent)}
+  .ornament svg{width:18px;height:18px}
+
+  /* ---------- Cards ---------- */
+  .card{background:var(--paper);border:1px solid var(--line);border-left:4px solid var(--crimson);padding:24px 22px;margin:28px 0;box-shadow:0 10px 30px rgba(42,10,10,.05)}
+  .card h2{font:700 12px/1 var(--label);letter-spacing:.18em;color:var(--crimson);margin:0 0 14px}
+  .host-card h2{text-align:center}
+
+  /* Offer */
+  .offer{text-align:center;border-left-width:1px;border-top:4px solid var(--crimson)}
+  .offer h2{margin-bottom:16px}
+  .price{display:flex;align-items:baseline;justify-content:center;gap:14px;margin:0 0 4px}
+  .price s{font:500 26px/1 var(--display);color:#9A867C}
+  .price b{font:600 64px/1 var(--display);color:var(--crimson)}
+  .price-note{font:italic 18px/1.4 var(--body);color:var(--muted);margin:0 0 18px}
+  .includes-label{font:700 11px/1 var(--label);letter-spacing:.18em;color:var(--muted);margin:0 0 12px}
+  .includes{list-style:none;margin:0 0 16px;padding:0;text-align:left;display:grid;gap:10px}
+  .includes li{display:flex;align-items:center;gap:14px;background:var(--cream);border:1px solid var(--line);border-radius:12px;padding:10px 14px;font-size:18px;line-height:1.3}
+  .includes img{width:46px;height:46px;border-radius:10px;flex-shrink:0}
+  .includes .gift{width:46px;height:46px;border-radius:10px;flex-shrink:0;display:flex;align-items:center;justify-content:center;background:var(--crimson);color:#fff}
+  .includes .gift svg{width:24px;height:24px}
+  .limited{font:700 12px/1 var(--label);letter-spacing:.14em;text-transform:uppercase;color:var(--crimson);margin:0}
+
+  /* About the class */
+  .about-class{text-align:center;padding:12px 0 0}
+  .about-class h2{font:600 34px/1.15 var(--display);margin:0 0 14px}
+  .about-class p{color:var(--brown)}
+  .about-class .soft{font-style:italic;color:var(--muted)}
+  .steps{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:22px 0 6px}
+  .step{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:16px 10px;text-align:center}
+  .step svg{width:30px;height:30px;color:var(--crimson);margin:0 auto 8px}
+  .step b{display:block;font:600 19px/1.2 var(--display)}
+
+  /* Photos */
+  .photos{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:26px 0 6px}
+  .photos figure{margin:0;border-radius:14px;overflow:hidden;aspect-ratio:3/4;background:var(--line)}
+  .photos img{width:100%;height:100%;object-fit:cover}
+
+  /* Signup */
+  .signup{background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--crimson);border-radius:4px;padding:30px 20px 22px;margin:30px 0 12px;text-align:center;box-shadow:0 14px 36px rgba(42,10,10,.08);scroll-margin-top:16px}
+  .signup h2{font:600 34px/1.1 var(--display);margin:0 0 8px}
+  .signup p.lead{font-size:18px;color:var(--muted);margin:0 0 16px}
+  .note{font:12px/1.55 var(--label);color:var(--muted);text-align:center;margin:0 0 6px}
+
+  /* Host */
+  .host{display:grid;gap:16px;align-items:center;text-align:center}
+  .host img{width:112px;height:112px;margin:0 auto;border-radius:50%;object-fit:cover;border:3px solid var(--cream);box-shadow:0 0 0 1px var(--line),0 8px 20px rgba(42,10,10,.12)}
+  .host p{margin:0 0 12px}
+  .host a{font-weight:600}
+  @media (min-width:520px){.host{grid-template-columns:120px 1fr;text-align:left}.host img{width:120px;height:120px}}
+
+  footer{border-top:1px solid var(--line);margin-top:10px;padding:24px 0 44px;text-align:center;font:13px/1.7 var(--label);color:var(--muted)}
+  footer a{color:var(--crimson)}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-media"><img src="/images/meditate-hero.jpg" alt="Sachin meditating in a temple hall" fetchpriority="high"></div>
+  <div class="hero-inner">
+    <p class="eyebrow">Journey into the Heart</p>
+    <h1>Primal Presence</h1>
+    <p class="sub">A Journey into the Space Between</p>
+    <div class="date-pill"><strong>Saturday, November 28</strong>12:00 to 1:00 pm<span>SWEAT440 Fitness &middot; 6206 W Sample Rd, Coral Springs</span></div>
+    <div><a class="btn" href="#details">Get the details</a></div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="card offer">
+    <h2>BLACK FRIDAY ON SATURDAY</h2>
+    <div class="price"><s>$50</s><b>$25</b></div>
+    <p class="price-note">Normally $50. For this one day, $25.</p>
+    <p class="includes-label">REGISTRATION ALSO INCLUDES</p>
+    <ul class="includes">
+      <li><img src="/images/sweat440.png" alt="SWEAT440 logo">2 free classes at SWEAT440</li>
+      <li><img src="/images/stretchzone.png" alt="StretchZone logo">A free stretch at StretchZone</li>
+      <li><span class="gift" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="9" width="18" height="12" rx="1"/><path d="M3 13h18M12 9v12M12 9c-1.5-3-5-4-6-2s2 2 6 2zM12 9c1.5-3 5-4 6-2s-2 2-6 2z"/></svg></span>A few more free surprises, shared by email</li>
+    </ul>
+    <p class="limited">Spaces are limited</p>
+  </div>
+
+  <div class="ornament" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2c1.5 4 4 6.5 8 8-4 1.5-6.5 4-8 8-1.5-4-4-6.5-8-8 4-1.5 6.5-4 8-8z"/></svg></div>
+
+  <section class="about-class">
+    <p class="eyebrow">The class</p>
+    <h2>Shake, breathe, move, and land in stillness.</h2>
+    <p>Primal Presence is a signature class created by Sachin. Shaking and release, breathwork and primal, animal-inspired movement settle the mind, body and soul into stillness. Then we move into a guided meditation journey into the space between.</p>
+    <div class="steps">
+      <div class="step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 8c2-2 4 2 6 0s4-2 6 0 4 2 4 2M4 14c2-2 4 2 6 0s4-2 6 0 4 2 4 2"/></svg><b>Shaking &amp; release</b></div>
+      <div class="step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M3 8h11a3 3 0 1 0-3-3M3 12h16a3 3 0 1 1-3 3M3 16h8"/></svg><b>Breathwork</b></div>
+      <div class="step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="16" rx="4.2" ry="3.4"/><circle cx="6" cy="10.5" r="1.8"/><circle cx="9.5" cy="6.5" r="1.8"/><circle cx="14.5" cy="6.5" r="1.8"/><circle cx="18" cy="10.5" r="1.8"/></svg><b>Primal movement</b></div>
+      <div class="step"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="5" r="2"/><path d="M12 8v4M6 18c2-3 4-4 6-4s4 1 6 4M12 12l-4 2M12 12l4 2"/></svg><b>Guided meditation</b></div>
+    </div>
+    <p class="soft">No experience is needed. Come as you are.</p>
+  </section>
+
+  <div class="photos">
+    <figure><img src="/images/primal-circle.jpg" alt="A class sitting in a circle around a meditation altar" loading="lazy"></figure>
+    <figure><img src="/images/primal-rest.jpg" alt="Participants resting during a guided meditation" loading="lazy"></figure>
+  </div>
+
+  <section class="signup" id="details">
+    <p class="eyebrow">Save your spot</p>
+    <h2>Get the details</h2>
+    <p class="lead">Enter your email and we will send you everything, including your link to register.</p>
+    <!-- Klaviyo form: Primal Presence Nov 28 landing page signup -->
+    <div class="klaviyo-form-Ti5aNB"></div>
+  </section>
+  <p class="note">By signing up you agree to receive emails from Journey into the Heart. Your phone number is optional and will not be used for texts. Unsubscribe any time.</p>
+
+  <section class="card host-card">
+    <h2>YOUR HOST</h2>
+    <div class="host">
+      <img src="/images/primal-host.jpg" alt="Sachin Barot" loading="lazy" width="300" height="300">
+      <div>
+        <p>Sachin Barot spent most of his career on Wall Street before moving into wellness, with a focus on mental health. He is the founder of Journey into the Heart, which hosts retreats, ceremonies and classes that bring together Internal Family Systems, mindfulness, movement and time in nature.</p>
+        <a href="/story.html">Read Sachin's full bio</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    Hosted by Sachin Barot, founder of Journey into the Heart<br>
+    <a href="https://sachinbarot.com">sachinbarot.com</a> &middot; <a href="https://instagram.com/nycsachin">@nycsachin</a>
+  </footer>
+</div>
+<script async type="text/javascript" src="https://static.klaviyo.com/onsite/js/klaviyo.js?company_id=VDeL2T"></script>
+</body>
+</html>

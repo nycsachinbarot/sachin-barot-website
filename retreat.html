@@ -7,7 +7,7 @@
   <meta name="description" content="Small-circle retreats to reboot, recalibrate and reconnect. Next cohort: Yosemite, week of January 25, 2027. By application." />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <meta property="og:title" content="Journey into the Heart Retreats" />
-  <meta property="og:description" content="Three days to reboot, recalibrate and reconnect. Next cohort: Yosemite, January 2027." />
+  <meta property="og:description" content="Time to reboot, recalibrate and reconnect. Next cohort: Yosemite, January 2027." />
   <meta property="og:image" content="https://www.sachinbarot.com/images/rt-yosemite.jpg" />
   <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32.png" />
   <link rel="icon" type="image/png" sizes="16x16" href="images/favicon-16.png" />
@@ -99,6 +99,14 @@
     .rt-scream { display: flex; justify-content: center; align-items: center; }
     .rt-scream svg { width: min(78vw, 360px); height: auto; color: var(--accent); }
     .rt-scream .swirl { stroke: rgba(201,169,110,0.28); }
+
+    /* Workshops */
+    .rt-workshops { display: grid; gap: 1rem; }
+    @media (min-width: 760px) { .rt-workshops { grid-template-columns: 1fr 1fr; gap: 1.4rem; } }
+    .rt-workshop { border: 1px solid var(--border-mid); background: var(--bg-card); border-radius: 4px; padding: 1.8rem 1.6rem; }
+    .rt-workshop svg { width: 30px; height: 30px; color: var(--accent); margin-bottom: 0.8rem; }
+    .rt-workshop h3 { font-family: var(--font-display); font-weight: 500; font-size: 1.7rem; margin-bottom: 0.5rem; }
+    .rt-workshop p { color: rgba(240,235,227,0.75); line-height: 1.75; font-size: 0.98rem; }
 
     /* Stages */
     .rt-stages { display: grid; gap: 1.2rem; margin-top: 2.6rem; }
@@ -192,7 +200,7 @@
     <div class="rt-hero-inner">
       <span class="rt-label">Retreats &amp; Experiences</span>
       <h1>Journey into the Heart</h1>
-      <p class="rt-sub">Three days to reboot, recalibrate and reconnect.</p>
+      <p class="rt-sub">Time to reboot, recalibrate and reconnect.</p>
       <p class="rt-meta">Small circles &nbsp;·&nbsp; Wild places &nbsp;·&nbsp; By application</p>
       <div class="rt-btn-row">
         <a href="#apply" class="btn btn-primary btn-large">Request your invitation</a>
@@ -312,6 +320,21 @@
         <p class="rt-lead">The part that pushes. The part that worries. The part that keeps everyone happy. And the part that's been hurting for a long time and never got a say.</p>
         <p>The Heart Method™ is parts work. Instead of fighting these parts, you get to know them. What they're protecting you from, and what they need.</p>
         <p>When they feel heard, they soften. And underneath, there's a steady, clear version of you that was there all along.</p>
+      </div>
+    </div>
+    <div class="rt-wrap">
+      <div class="rt-center rt-also-head"><span class="rt-label">Alongside the Heart Method™</span></div>
+      <div class="rt-workshops">
+        <div class="rt-workshop">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg>
+          <h3>Stillness</h3>
+          <p>Guided practices to quiet the mind and settle the body. Learning to be with yourself, without needing to fix anything.</p>
+        </div>
+        <div class="rt-workshop">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 18h6l4-12h6"/><path d="M17 3l3 3-3 3"/><circle cx="4" cy="18" r="1.4" fill="currentColor"/></svg>
+          <h3>Values into Action</h3>
+          <p>Get clear on what matters most to you. Then map what you'll actually do, the choices, habits and next steps that match those values, so you leave with a direction and not just a feeling.</p>
+        </div>
       </div>
     </div>
   </section>

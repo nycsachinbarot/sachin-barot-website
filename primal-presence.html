@@ -104,6 +104,23 @@
   .signup{background:var(--paper);border:1px solid var(--line);border-top:4px solid var(--crimson);border-radius:4px;padding:30px 20px 22px;margin:30px 0 12px;text-align:center;box-shadow:0 14px 36px rgba(42,10,10,.08);scroll-margin-top:16px}
   .signup h2{font:600 34px/1.1 var(--display);margin:0 0 8px}
   .signup p.lead{font-size:18px;color:var(--muted);margin:0 0 16px}
+  /* Klaviyo form (Ti5aNB): stack fields full width, clear inputs, crimson button */
+  .klaviyo-form-Ti5aNB form{padding:4px 0 0 !important;min-height:0 !important}
+  .klaviyo-form-Ti5aNB form > div{width:100% !important;min-height:0 !important}
+  .klaviyo-form-Ti5aNB form > div > div{flex-direction:column !important;align-items:stretch !important;min-height:0 !important}
+  .klaviyo-form-Ti5aNB form > div > div > div{width:100% !important;max-width:none !important;flex:none !important;padding:6px 0 !important;background:transparent !important}
+  .klaviyo-form-Ti5aNB input[type=text],.klaviyo-form-Ti5aNB input[type=email],.klaviyo-form-Ti5aNB input[type=tel]{
+    width:100% !important;height:54px !important;box-sizing:border-box !important;padding:0 16px !important;
+    background:#fff !important;color:#2A0A0A !important;border:1.5px solid #D9C9BB !important;border-radius:10px !important;
+    font:400 17px/1.2 Georgia,'Times New Roman',serif !important;text-align:left !important}
+  .klaviyo-form-Ti5aNB input::placeholder{color:#8C7468 !important;opacity:1 !important}
+  .klaviyo-form-Ti5aNB input:focus{border-color:#8B1A1A !important;box-shadow:0 0 0 3px rgba(139,26,26,.15) !important;outline:none !important}
+  .klaviyo-form-Ti5aNB button{
+    width:100% !important;height:56px !important;margin:6px 0 0 !important;background:#8B1A1A !important;color:#fff !important;
+    border:0 !important;border-radius:999px !important;font:700 16px/1 Arial,Helvetica,sans-serif !important;letter-spacing:.03em !important;
+    box-shadow:0 8px 22px rgba(139,26,26,.28) !important;cursor:pointer !important;white-space:nowrap !important}
+  .klaviyo-form-Ti5aNB button:hover{background:#6E1414 !important}
+  .klaviyo-form-Ti5aNB div:has(> button){background:transparent !important;padding:0 !important;border:0 !important}
   .note{font:12px/1.55 var(--label);color:var(--muted);text-align:center;margin:0 0 6px}
 
   /* Host */
